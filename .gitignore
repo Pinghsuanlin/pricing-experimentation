@@ -1,0 +1,28 @@
+# Data: never commit the dataset (see data/README.md)
+data/raw/*
+!data/raw/.gitkeep
+*.csv
+*.zip
+
+# Generated outputs
+reports/
+
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+build/
+dist/
+.pytest_cache/
+.ruff_cache/
+.ipynb_checkpoints/
+
+# uv lock is optional for a portfolio repo; remove this line to commit it
+uv.lock
+
+# Editors / OS
+.vscode/
+.idea/
+.DS_Store

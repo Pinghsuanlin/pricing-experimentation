@@ -1,0 +1,48 @@
+[build-system]
+requires = ["hatchling>=1.24"]
+build-backend = "hatchling.build"
+
+[project]
+name = "pricing-experimentation-lab"
+version = "0.1.0"
+description = "Price elasticity, experiment design and a simulated DiD price test on public hotel booking data."
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "MIT" }
+authors = [{ name = "Sherie Lin" }]
+dependencies = [
+    "numpy>=1.24",
+    "pandas>=2.0",
+    "scipy>=1.10",
+    "statsmodels>=0.14",
+    "streamlit>=1.32",
+    "plotly>=5.18",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=8.0",
+    "ruff>=0.5",
+]
+
+[project.urls]
+Repository = "https://github.com/Pinghsuanlin/pricing-experimentation-lab"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/pricing_lab"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["src"]
+addopts = "-q"
+
+[tool.ruff]
+line-length = 100
+target-version = "py310"
+src = ["src", "tests"]
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "B", "UP"]
+
+[tool.ruff.lint.isort]
+known-first-party = ["pricing_lab"]
